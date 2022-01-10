@@ -14,7 +14,7 @@ function renderLicenseSection(license) {}
 function generateMarkdown(data) {
   return `
   
-  # ${data.title}
+  # ${data.Title}
   https://github.com/${data.username}/${data.Title}
   # Description
   ${data.Description}

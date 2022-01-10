@@ -3,12 +3,12 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const util = require('util');
 
-const generatorMarkdown = require('./Develop/utils/generateMarkdown')
+const generatorMarkdown = require('./util/generateMarkdown')
 
 // TODO: Create an array of questions for user input
 const userQuestions = [{
     type: 'input',
-    name: 'title',
+    name: 'Title',
     message: 'What is the title of your project',
 },
 {
@@ -24,27 +24,27 @@ const userQuestions = [{
 {
     type: 'input',
     name: 'installation',
-    message: 'What does the user need to install to run this app? (ie dependenies like node, inquierer, etc...)',
+    message: 'What does the user need to install to run this app? (ie dependenies like node, inquirer, etc...)',
 },
 {
     type: 'input',
-    name: 'usage',
+    name: 'Usage',
     message: 'Please provide instructions on how this app will be used',
 },
 {
-    type: 'input',
+    type: 'checkbox',
     name: 'License',
     message: 'What kind of liscense is used for this app?',
     choices: ['Apache License 2.0', 'BSD 3-Clause', 'BSD 2-Clause', 'MIT license', 'Mozilla Public License 2.0']
 },
 {
     type: 'input',
-    name: 'contribution',
+    name: 'Contribution',
     message: 'Who were the contributors to the project?',
 },
 {
     type: 'input',
-    name: 'tests',
+    name: 'Tests',
     message: 'What commands are used to test app?',
 },
 {
@@ -80,7 +80,7 @@ function writeToFile(fileName, data) {
 
 // TODO: Create a function to initialize app
 function init() {
-    inquirer.prompt(questions)
+    inquirer.prompt(userQuestions)
         .then(function(data) {
             writeToFile("README.md", generatorMarkdown(data));
 
