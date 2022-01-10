@@ -9,7 +9,7 @@ const generatorMarkdown = require('./util/generateMarkdown')
 const userQuestions = [{
     type: 'input',
     name: 'Title',
-    message: 'What is the title of your project',
+    message: 'What is the title of your repository?',
 },
 {
     type: 'input',
